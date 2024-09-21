@@ -1,0 +1,7 @@
+recentPosts = "Posts Recentes"
+viewAllPosts = "Ver todos os posts"
+tags = "Tags"
+tagTitle = "Tag #{{ .name }}"
+poweredBy = "Feito com {{ .generator }} e {{ .theme }}."
+readingTime = "{{ .count }} min de leitura"
+pageNotFound = "Página não encontrada!"

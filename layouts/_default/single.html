@@ -1,0 +1,25 @@
+{{ define "main" }}
+  <div class="post-header">
+    <h1 class="post-title">{{ .Title }}</h1>
+    {{ with .Params.description }}
+      <p class="post-description">{{ . | plainify }}</p>
+    {{ end }}
+    <div class="post-meta">
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_medium" }}</time>
+      <span>·</span>
+      <span>{{ T "readingTime" (dict "count" .ReadingTime) }}</span>
+    </div>
+  </div>
+  <div class="post-content">
+    {{ .Content }}
+  </div>
+  {{ with .GetTerms "tags" }}
+    <ul class="tag-list">
+      {{ range . }}
+        <li>
+          <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+        </li>
+      {{ end }}
+    </ul>
+  {{ end }}
+{{ end }}

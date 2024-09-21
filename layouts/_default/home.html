@@ -1,0 +1,43 @@
+{{ define "main" }}
+  <div class="about-me">
+    <div class="about-me-header">
+      {{ with .Site.Params.avatar }}
+        <img class="about-me-avatar" alt="avatar" src="{{ . | safeURL }}">
+      {{ end }}
+      <h1 class="about-me-author-name">{{ .Site.Params.author }}</h1>
+      {{ if or .Site.Params.nickname .Site.Params.pronouns }}
+        <div class="about-me-author-nickname-pronouns">
+          {{ if .Site.Params.nickname }}
+            <span>{{ .Site.Params.nickname }}</span>
+            {{ if .Site.Params.pronouns}}
+              <span>·</span>
+              <span>{{ .Site.Params.pronouns }}</span>
+            {{ end }}
+          {{ end }}
+        </div>
+      {{ end }}
+    </div>
+    {{ .Content }}
+    {{ with .Site.Params.social}}
+      <ul class="social-list">
+        {{ range . }}
+          {{ partial "social-item" . }}
+        {{ end }}
+      </ul>
+    {{ end }}
+  </div>
+  {{ if gt site.RegularPages.Len 0 }}
+    <div>
+      <h2>{{ T "recentPosts" }}</h2>
+      <ul class="post-list">
+        {{ $RecentPostsCount := default 3 .Site.Params.RecentPostsCount }}
+        {{ range first $RecentPostsCount site.RegularPages }}
+          {{ partial "post-item" . }}
+        {{ end }}
+      </ul>
+      <p>
+        <a href="{{ relLangURL "posts" }}">{{ T "viewAllPosts" }}</a>
+      </p>
+    </div>
+  {{ end }}
+{{ end }}

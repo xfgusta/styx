@@ -1,0 +1,11 @@
+{{ define "main" }}
+  <h1>{{ T "tagTitle" (dict "name" .Title) }}</h1>
+  {{ range .Pages.GroupByDate "2006" "desc" }}
+    <h2>{{ .Key }}</h2>
+    <ul class="post-list">
+      {{ range .Pages }}
+        {{ partial "post-item" . }}
+      {{ end }}
+    </ul>
+  {{ end }}
+{{ end }}

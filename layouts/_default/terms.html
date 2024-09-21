@@ -1,0 +1,13 @@
+{{ define "main" }}
+  <h1>{{ T "tags" }}</h1>
+  <ul class="tag-list">
+    {{ range $.Site.Taxonomies.tags.ByCount }}
+      <li>
+        <a href="{{ .Page.RelPermalink }}">
+          {{ .Page.LinkTitle }}
+          <span>({{ .Count }})</span>
+        </a>
+      </li>
+    {{ end }}
+  </ul>
+{{ end }}

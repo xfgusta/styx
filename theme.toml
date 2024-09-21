@@ -1,0 +1,28 @@
+name = "styx"
+license = "MIT"
+licenselink = "https://github.com/xfgusta/styx/blob/main/LICENSE"
+description = "A simple Hugo theme for personal blogs"
+
+homepage = "https://github.com/xfgusta/styx"
+
+tags = [
+  "blog",
+  "clean",
+  "dark",
+  "minimal",
+  "personal",
+  "responsive",
+  "simple"
+]
+
+features = [
+  "archive",
+  "blog",
+  "responsive",
+  "tags",
+  "multilingual"
+]
+
+[author]
+name = "Gustavo Costa"
+homepage = "https://xfgusta.github.io"

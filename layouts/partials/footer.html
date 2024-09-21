@@ -1,0 +1,22 @@
+{{ if gt $.Site.Home.AllTranslations 1 }}
+  {{ $translations := .AllTranslations }}
+  {{ if not .IsTranslated }}
+      {{ $translations = $.Site.Home.AllTranslations }}
+  {{ end }}
+  <ul class="language-list">
+    {{ range $translations }}
+      <li>
+        {{ if eq .Lang $.Page.Lang }}
+          {{ .Language.LanguageName }}
+        {{ else }}
+          <a href="{{ .RelPermalink }}">{{ .Language.LanguageName }}</a>
+        {{ end }}
+      </li>
+    {{ end }}
+  </ul>
+{{ end }}
+
+{{ $generator := `<a href="https://www.gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>` }}
+{{ $theme := `<a href="https://github.com/xfgusta/styx" target="_blank" rel="noopener noreferrer">Styx</a>` }}
+
+<p class="footer-attribution">© {{ now.Year }} {{ .Site.Params.author }}. {{ T "poweredBy" (dict "generator" $generator "theme" $theme) | safeHTML }}</p>

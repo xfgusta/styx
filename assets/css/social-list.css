@@ -1,0 +1,75 @@
+.social-list a.email {
+  background-color: rgb(212, 70, 56);
+}
+
+.social-list a.facebook {
+  background-color: rgb(24, 119, 242);
+}
+
+.social-list a.github {
+  background-color: rgb(36, 41, 47);
+}
+
+.social-list a.gitlab {
+  background-color: rgb(226, 67, 41);
+}
+
+.social-list a.hacker-news {
+  background-color: rgb(255, 102, 0);
+}
+
+.social-list a.instagram {
+  background-color: rgb(255, 0, 105);
+}
+
+.social-list a.keybase {
+  background-color: rgb(254, 111, 33);
+}
+
+.social-list a.lastfm {
+  background-color: rgb(227, 28, 35);
+}
+
+.social-list a.linkedin {
+  background-color: rgb(0, 115, 177);
+}
+
+.social-list a.mastodon {
+  background-color: rgb(99, 100, 255)
+}
+
+.social-list a.matrix {
+  background-color: rgb(0, 0, 0);
+}
+
+.social-list a.pinterest {
+  background-color: rgb(230, 0, 35);
+}
+
+.social-list a.reddit {
+  background-color: rgb(255, 69, 0);
+}
+
+.social-list a.spotify {
+  background-color: rgb(29, 185, 84);
+}
+
+.social-list a.stack-overflow {
+  background-color: rgb(244, 128, 36);
+}
+
+.social-list a.telegram {
+  background-color: rgb(0, 136, 204);
+}
+
+.social-list a.twitch {
+  background-color: rgb(145, 70, 255);
+}
+
+.social-list a.x-twitter {
+  background-color: rgb(0, 0, 0);
+}
+
+.social-list a.youtube {
+  background-color: rgb(255, 0, 0);
+}
