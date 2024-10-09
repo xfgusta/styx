@@ -1,12 +1,5 @@
 {{ $id := .id | lower }}
-{{ $svgPath := "/static/svgs/link.svg" }}
-
-{{ if (fileExists (printf "/static/svgs/%s.svg" $id)) }}
-  {{ $svgPath = (printf "/static/svgs/%s.svg" $id) }}
-{{ end }}
-
-{{ $svg := $svgPath | readFile | safeHTML }}
 
 <li>
-  <a class="{{ $id }}" href="{{ .url | safeURL }}" target="_blank" rel="noopener noreferrer me" title="{{ .title }}">{{ $svg }}</a>
+  <a class="{{ $id }}" href="{{ .url | safeURL }}" target="_blank" rel="noopener noreferrer me" title="{{ .title }}">{{ .title }}</a>
 </li>

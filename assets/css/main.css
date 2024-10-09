@@ -132,8 +132,7 @@ hr {
 .social-list {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  gap: .5rem;
+  gap: 4px;
   padding: 0;
   margin: 1rem 0;
   list-style-type: none;
@@ -164,24 +163,16 @@ hr {
 /* social item */
 
 .social-list li a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 28px;
-  height: 28px;
+  padding: 2px 8px;
   border-radius: 4px;
   transition: filter 0.2s ease;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
 }
 
-.social-list li a:hover, .social-list li a:focus {
-  filter: brightness(0.7);
-}
-
-.social-list li a svg {
-  display: block;
-  width: 20px;
-  height: 20px;
-  fill: white;
+.social-list li a:hover {
+  text-decoration: none;
 }
 
 /* post item */
