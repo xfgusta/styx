@@ -9,10 +9,12 @@
         <div class="about-me-author-nickname-pronouns">
           {{ if .Site.Params.nickname }}
             <span>{{ .Site.Params.nickname }}</span>
-            {{ if .Site.Params.pronouns}}
-              <span>·</span>
-              <span>{{ .Site.Params.pronouns }}</span>
-            {{ end }}
+          {{ end }}
+          {{ if and .Site.Params.nickname .Site.Params.pronouns }}
+            <span>·</span>
+          {{ end }}
+          {{ if .Site.Params.pronouns}}
+            <span>{{ .Site.Params.pronouns }}</span>
           {{ end }}
         </div>
       {{ end }}
@@ -28,15 +30,15 @@
   </div>
   {{ if gt site.RegularPages.Len 0 }}
     <div>
-      <h2>{{ T "recentPosts" }}</h2>
+      <h2>Recent Posts</h2>
       <ul class="post-list">
         {{ $RecentPostsCount := default 3 .Site.Params.RecentPostsCount }}
         {{ range first $RecentPostsCount site.RegularPages }}
           {{ partial "post-item" . }}
         {{ end }}
       </ul>
-      <p>
-        <a href="{{ relLangURL "posts" }}">{{ T "viewAllPosts" }}</a>
+      <p class="view-all-posts">
+        <a href="{{ relURL "posts" }}">View all posts</a>
       </p>
     </div>
   {{ end }}

@@ -30,7 +30,6 @@ header {
 footer {
   margin-top: 1.5rem;
   margin-bottom: 1rem;
-  color: #505050;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -86,8 +85,12 @@ hr {
   color: #505050;
 }
 
+.view-all-posts {
+  margin: 1.5rem 0;
+}
+
 .footer-attribution {
-  color: inherit;
+  color: #505050;
 }
 
 /* about me */
@@ -102,8 +105,7 @@ hr {
 
 .about-me-avatar {
   width: 100px;
-  border-radius: 4px;
-  border: 1px solid #d1d9e0;
+  border-radius: 50%;
   box-shadow: 0 0 0 1px #1f232826;
   box-sizing: border-box;
 }
@@ -142,20 +144,12 @@ hr {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  row-gap: 1rem;
+  row-gap: 1.5rem;
   padding: 0;
   list-style-type: none;
 }
 
 .tag-list {
-  padding: 0;
-  list-style-type: none;
-}
-
-.language-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
   padding: 0;
   list-style-type: none;
 }

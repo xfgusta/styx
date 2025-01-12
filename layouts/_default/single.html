@@ -5,9 +5,9 @@
       <p class="post-description">{{ . | plainify }}</p>
     {{ end }}
     <div class="post-meta">
-      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_medium" }}</time>
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format "2006-01-02" }}</time>
       <span>·</span>
-      <span>{{ T "readingTime" (dict "count" .ReadingTime) }}</span>
+      <span>{{ .ReadingTime }} min read</span>
     </div>
   </div>
   <div class="post-content">
@@ -17,7 +17,7 @@
     <ul class="tag-list">
       {{ range . }}
         <li>
-          <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+          <a href="{{ .RelPermalink }}">{{ .LinkTitle | lower }}</a>
         </li>
       {{ end }}
     </ul>

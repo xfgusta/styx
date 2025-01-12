@@ -2,7 +2,7 @@
   <h3 class="post-item-title">
     <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
   </h3>
-  <time class="post-item-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_medium" }}</time>
+  <time class="post-item-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format "2006-01-02" }}</time>
   {{ with .Params.description }}
     <p class="post-item-description">{{ . | plainify }}</p>
   {{ end }}
@@ -10,7 +10,7 @@
     <ul class="tag-list">
       {{ range . }}
         <li>
-          <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+          <a href="{{ .RelPermalink }}">{{ .LinkTitle | lower }}</a>
         </li>
       {{ end }}
     </ul>
