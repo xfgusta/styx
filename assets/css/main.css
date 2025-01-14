@@ -190,11 +190,12 @@ hr {
   margin: 0;
 }
 
-.post-item-description {
+.post-item-description :first-child, .post-item-description :last-child {
   margin: 0;
 }
 
 .post-item-date {
+  flex-shrink: 0;
   color: #505050;
 }
 

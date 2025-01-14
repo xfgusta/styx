@@ -5,8 +5,10 @@
     </h3>
     <time class="post-item-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format "2006-01-02" }}</time>
   </div>
-  {{ with .Params.description }}
-    <p class="post-item-description">{{ . | plainify }}</p>
+  {{ if .Params.description }}
+    <p class="post-item-description">{{ .Params.description | plainify }}</p>
+  {{ else }}
+    <div class="post-item-description">{{ .Content | strings.Truncate 160 }}</div>
   {{ end }}
   {{ with .GetTerms "tags" }}
     <ul class="tag-list">
