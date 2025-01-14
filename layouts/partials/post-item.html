@@ -1,8 +1,10 @@
 <li>
-  <h3 class="post-item-title">
-    <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
-  </h3>
-  <time class="post-item-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format "2006-01-02" }}</time>
+  <div class="post-item-line">
+    <h3 class="post-item-title">
+      <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+    </h3>
+    <time class="post-item-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format "2006-01-02" }}</time>
+  </div>
   {{ with .Params.description }}
     <p class="post-item-description">{{ . | plainify }}</p>
   {{ end }}

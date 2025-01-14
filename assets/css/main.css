@@ -177,6 +177,13 @@ hr {
   row-gap: .5rem;
 }
 
+.post-item-line {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  column-gap: 1rem;
+}
+
 .post-item-title {
   font-size: 1rem;
   font-weight: 400;
