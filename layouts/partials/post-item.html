@@ -1,22 +1,11 @@
 <li>
-  <div class="post-item-line">
-    <h3 class="post-item-title">
-      <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
-    </h3>
-    <time class="post-item-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format "2006-01-02" }}</time>
-  </div>
+  <h3 class="post-item-title">
+    <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+  </h3>
+  <time class="post-item-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format "2006-01-02" }}</time>
   {{ if .Params.description }}
     <p class="post-item-description">{{ .Params.description | plainify }}</p>
   {{ else }}
     <div class="post-item-description">{{ .Content | strings.Truncate 160 }}</div>
-  {{ end }}
-  {{ with .GetTerms "tags" }}
-    <ul class="tag-list">
-      {{ range . }}
-        <li>
-          <a href="{{ .RelPermalink }}">{{ .LinkTitle | lower }}</a>
-        </li>
-      {{ end }}
-    </ul>
   {{ end }}
 </li>
