@@ -1,7 +1,9 @@
-{{ with or .Site.Params.siteTitle site.Title }}
-  <h1 class="site-title">
-    <a href="{{ relURL "" }}">{{ . }}</a>
-  </h1>
+{{ if .Site.Params.showSiteTitle}}
+  {{ with or .Site.Params.siteTitle site.Title }}
+    <h1 class="site-title">
+      <a href="{{ relURL "" }}">{{ . }}</a>
+    </h1>
+  {{ end }}
 {{ end }}
 <nav>
   {{ with .Site.Menus.main }}

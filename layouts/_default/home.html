@@ -4,20 +4,22 @@
       {{ with .Site.Params.avatar }}
         <img class="about-me-avatar" alt="avatar" src="{{ . | safeURL }}">
       {{ end }}
-      <h1 class="about-me-author-name">{{ .Site.Params.author }}</h1>
-      {{ if or .Site.Params.nickname .Site.Params.pronouns }}
-        <div class="about-me-author-nickname-pronouns">
-          {{ if .Site.Params.nickname }}
-            <span>{{ .Site.Params.nickname }}</span>
-          {{ end }}
-          {{ if and .Site.Params.nickname .Site.Params.pronouns }}
-            <span>·</span>
-          {{ end }}
-          {{ if .Site.Params.pronouns}}
-            <span>{{ .Site.Params.pronouns }}</span>
-          {{ end }}
-        </div>
-      {{ end }}
+      <div class="about-me-author-info">
+        <h1 class="about-me-author-name">{{ .Site.Params.author }}</h1>
+        {{ if or .Site.Params.nickname .Site.Params.pronouns }}
+          <div class="about-me-author-nickname-pronouns">
+            {{ if .Site.Params.nickname }}
+              <span>{{ .Site.Params.nickname }}</span>
+            {{ end }}
+            {{ if and .Site.Params.nickname .Site.Params.pronouns }}
+              <span>·</span>
+            {{ end }}
+            {{ if .Site.Params.pronouns}}
+              <span>{{ .Site.Params.pronouns }}</span>
+            {{ end }}
+          </div>
+        {{ end }}
+      </div>
     </div>
     {{ .Content }}
     {{ with .Site.Params.social}}
@@ -38,7 +40,7 @@
         {{ end }}
       </ul>
       <p class="view-all-posts">
-        <a href="{{ relURL "posts" }}">View all posts</a>
+        <a href="{{ relURL "posts" }}">View All Posts →</a>
       </p>
     </div>
   {{ end }}

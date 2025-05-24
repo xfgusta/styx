@@ -11,7 +11,8 @@ code {
 }
 
 pre {
-  background-color: #f6f7f6 !important;
+  background-color: #18181c !important;
+  color: #e0e0e0;
   padding: 1rem !important;
   border-radius: 3px;
   overflow: scroll;
@@ -40,4 +41,35 @@ table thead th, table tbody td {
 
 table tr:nth-child(2n+1) > td {
   background-color: #fcfcfc;
+}
+
+/* Dark mode styles */
+
+@media (prefers-color-scheme: dark) {
+  blockquote {
+    border-left: 3px solid #444;
+    color: #a6a6bb;
+  }
+
+  code {
+    color: #e0e0e0;
+  }
+
+  p code {
+    background-color: #23232b;
+    color: #e0e0e0;
+  }
+
+  table {
+    background-color: #18181c;
+    color: #e0e0e0;
+  }
+
+  table thead th, table tbody td {
+    border: 1px solid #444;
+  }
+
+  table tr:nth-child(2n+1) > td {
+    background-color: #23232b;
+  }
 }
