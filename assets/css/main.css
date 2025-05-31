@@ -12,17 +12,13 @@ html {
 body {
   margin: auto;
   padding: 0 1rem;
-  max-width: 780px;
+  max-width: 720px;
   font-family: 'Open Sans', sans-serif;
   font-size: 1rem;
   color: #161616;
 }
 
 header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  row-gap: .5rem;
   margin: 1rem 0;
 }
 
@@ -76,22 +72,12 @@ hr {
   border-top: 1px solid #d1d9e0;
 }
 
-.site-title {
-  font-size: 1rem;
-  font-weight: 500;
-  margin: 0;
-}
-
-.site-title a {
-  color: #505050;
-}
-
 .view-all-posts {
   margin: 1rem 0;
 }
 
 .footer-attribution {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 }
 
 .footer-attribution, .footer-attribution a {
@@ -113,7 +99,7 @@ hr {
 
 .about-me-avatar {
   width: 80px;
-  border-radius: 4px;
+  border-radius: 50%;
   box-shadow: 0 0 0 1px #1f232826;
   flex-shrink: 0;
 }
@@ -141,6 +127,7 @@ hr {
 .menu-list {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   column-gap: 1rem;
   padding: 0;
   margin: 0;
@@ -178,14 +165,18 @@ hr {
   border-radius: 4px;
   font-size: 14px;
   font-weight: 500;
-  color: #ffffff;
-  min-width: 40px;
+  min-width: 32px;
   min-height: 24px;
   box-sizing: border-box;
   text-align: center;
+  background-color: #ddf4ff;
+  color: #0044cc;
+  transition: background 0.2s, color 0.2s;
 }
 
 .social-list li a:hover {
+  background-color: #0969da;
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -224,6 +215,7 @@ hr {
   padding: 2px 8px;
   border-radius: 2em;
   background-color: #ddf4ff;
+  transition: background 0.2s, color 0.2s;
 }
 
 .tag-list li a:hover {
@@ -288,16 +280,24 @@ hr {
     border-top: 1px solid #444;
   }
 
-  .site-title a {
-    color: #a6a6bb;
-  }
-
   .footer-attribution, .footer-attribution a {
     color: #a6a6bb;
   }
 
   .about-me-author-nickname-pronouns {
     color: #a6a6bb;
+  }
+
+  .social-list li a {
+    background-color: #1f1f1f;
+    color: #e0e0e0;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .social-list li a:hover {
+    background-color: #bb86fc;
+    color: #1f1f1f;
+    text-decoration: none;
   }
 
   .post-item-date {
@@ -314,5 +314,6 @@ hr {
 
   .tag-list li a:hover {
     background-color: #bb86fc;
+    color: #1f1f1f;
   }
 }

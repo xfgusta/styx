@@ -25,7 +25,9 @@
     {{ with .Site.Params.social}}
       <ul class="social-list">
         {{ range . }}
-          {{ partial "social-item" . }}
+          <li>
+            <a href="{{ .url | safeURL }}" target="_blank" rel="noopener noreferrer me" title="{{ .title }}">{{ .title }}</a>
+          </li>
         {{ end }}
       </ul>
     {{ end }}
