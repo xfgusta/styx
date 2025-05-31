@@ -1,3 +1,8 @@
+{{ with or .Site.Params.siteTitle site.Title }}
+  <h1 class="site-title">
+    <a href="{{ relURL "" }}">{{ . }}</a>
+  </h1>
+{{ end }}
 <nav>
   {{ with .Site.Menus.main }}
     <ul class="menu-list">

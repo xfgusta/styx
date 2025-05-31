@@ -19,7 +19,22 @@ body {
 }
 
 header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 1rem;
   margin: 1rem 0;
+}
+
+/* Responsive header: hide site-title and stack nav on mobile */
+
+@media (max-width: 600px) {
+  .site-title {
+    display: none;
+  }
+  header {
+    flex-direction: column;
+  }
 }
 
 footer {
@@ -70,6 +85,16 @@ a:hover {
 hr {
   border: none;
   border-top: 1px solid #d1d9e0;
+}
+
+.site-title {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.site-title a {
+  color: #505050;
 }
 
 .view-all-posts {
@@ -278,6 +303,10 @@ hr {
 
   hr {
     border-top: 1px solid #444;
+  }
+
+  .site-title a {
+    color: #a6a6bb;
   }
 
   .footer-attribution, .footer-attribution a {
