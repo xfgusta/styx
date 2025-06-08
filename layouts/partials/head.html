@@ -4,9 +4,14 @@
 
 {{ if .IsHome }}
   <meta name="description" content="{{ .Site.Params.description }}">
+{{ else if and .IsSection (eq .Section "posts") }}
+  <meta name="description" content="{{ T "postsPageDescription" }}">
+{{ else if and (eq .Kind "taxonomy") (eq .Section "tags") }}
+  <meta name="description" content="{{ T "tagsPageDescription" }}">
+{{ else if and (eq .Kind "term") (eq .Section "tags") }}
+  <meta name="description" content="{{ T "tagPageDescription" (dict "tag" (printf "#%s" .Title | lower)) }}">
 {{ else }}
-  {{ $description := .Scratch.Get "description" | default .Params.description | default .Site.Params.description }}
-  <meta name="description" content="{{ $description }}">
+  <meta name="description" content="{{ .Params.description | default .Site.Params.description }}">
 {{ end }}
 
 <link rel="icon" type="image/svg" href="/favicon.svg">

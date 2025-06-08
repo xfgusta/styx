@@ -1,5 +1,4 @@
 {{ define "main" }}
-  {{ .Scratch.Set "description" (T "tagsPageDescription") }}
   <h1>{{T "tags" }}</h1>
   <ul class="tag-list">
     {{ range $.Site.Taxonomies.tags.ByCount }}

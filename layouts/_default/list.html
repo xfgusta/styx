@@ -1,5 +1,4 @@
 {{ define "main" }}
-  {{ .Scratch.Set "description" (T "postsPageDescription") }}
   <h1>{{ .Title }}</h1>
   {{ .Content }}
   {{ range .Pages.GroupByDate "2006" "desc" }}
