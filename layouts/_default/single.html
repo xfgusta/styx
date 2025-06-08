@@ -7,7 +7,7 @@
     <div class="post-meta">
       <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format "2006-01-02" }}</time>
       <span>·</span>
-      <span>{{ .ReadingTime }} min read</span>
+      <span>{{ T "minRead" (dict "count" .ReadingTime) }}</span>
     </div>
   </div>
   <div class="post-content">

@@ -1,1 +1,4 @@
-<p class="footer-attribution">© {{ .Site.Params.author }} · <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> and <a href="https://github.com/xfgusta/styx" target="_blank" rel="noopener noreferrer">Styx</a>.</p>
+{{ $generator := `<a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>` }}
+{{ $theme := `<a href="https://github.com/xfgusta/styx" target="_blank" rel="noopener noreferrer">Styx</a>` }}
+
+<p class="footer-attribution">{{ T "footerAttribution" (dict "author" .Site.Params.author "generator" $generator "theme" $theme) | safeHTML }}</p>

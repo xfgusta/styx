@@ -13,5 +13,50 @@
   <footer>
     {{ partial "footer.html" . }}
   </footer>
+  <script>
+    (function() {
+      const html = document.documentElement;
+      const btn = document.getElementById('theme-toggle');
+      const THEME_KEY = 'theme';
+
+      function setTheme(theme) {
+        if (theme === 'dark') {
+          html.setAttribute('data-theme', 'dark');
+        } else {
+          html.removeAttribute('data-theme');
+        }
+      }
+
+      function detectTheme() {
+        const saved = localStorage.getItem(THEME_KEY);
+        if (saved === 'dark' || saved === 'light') {
+          setTheme(saved);
+          return saved;
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          setTheme('dark');
+          return 'dark';
+        } else {
+          setTheme('light');
+          return 'light';
+        }
+      }
+
+      if (btn) {
+        btn.addEventListener('click', function() {
+          const isDark = html.getAttribute('data-theme') === 'dark';
+          setTheme(isDark ? 'light' : 'dark');
+          localStorage.setItem(THEME_KEY, isDark ? 'light' : 'dark');
+        });
+      }
+
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        if (!localStorage.getItem(THEME_KEY)) {
+          setTheme(e.matches ? 'dark' : 'light');
+        }
+      });
+
+      detectTheme();
+    })();
+  </script>
 </body>
 </html>

@@ -21,12 +21,14 @@
         {{ end }}
       </div>
     </div>
-    {{ .Content }}
-    {{ with .Site.Params.social}}
-      <ul class="social-list">
+    {{ with .Site.Params.description }}
+      <p>{{ . | markdownify }}</p>
+    {{ end }}
+    {{ with .Site.Params.links}}
+      <ul class="link-list">
         {{ range . }}
           <li>
-            <a href="{{ .url | safeURL }}" target="_blank" rel="noopener noreferrer me" title="{{ .title }}">{{ .title }}</a>
+            <a href="{{ .url | safeURL }}" target="_blank" rel="noopener noreferrer me">{{ .name }}</a>
           </li>
         {{ end }}
       </ul>
@@ -34,16 +36,35 @@
   </div>
   {{ if gt site.RegularPages.Len 0 }}
     <div>
-      <h2>Recent Posts</h2>
+      {{ $recentPostsCount := default 3 .Site.Params.RecentPostsCount }}
+      {{ if eq $recentPostsCount 1 }}
+        <h2>{{ T "latestPost" }}</h2>
+      {{ else }}
+        <h2>{{ T "recentPosts" }}</h2>
+      {{ end }}
       <ul class="post-list">
-        {{ $RecentPostsCount := default 3 .Site.Params.RecentPostsCount }}
-        {{ range first $RecentPostsCount site.RegularPages }}
+        {{ range first $recentPostsCount site.RegularPages }}
           {{ partial "post-item" . }}
         {{ end }}
       </ul>
       <p class="view-all-posts">
-        <a href="{{ relURL "posts" }}">View All Posts →</a>
+        <a href="{{ relLangURL "posts" }}">{{ T "viewAllPosts" }}</a>
       </p>
+    </div>
+  {{ end }}
+  {{ if and (.Site.Params.showTagsOnHome) (gt (len $.Site.Taxonomies.tags) 0) }}
+    <div>
+      <h2>{{ T "tags" }}</h2>
+      <ul class="tag-list">
+        {{ range $.Site.Taxonomies.tags.ByCount }}
+          <li>
+            <a href="{{ .Page.RelPermalink }}">
+              {{ .Page.LinkTitle | lower }}
+              <span>({{ .Count }})</span>
+            </a>
+          </li>
+        {{ end }}
+      </ul>
     </div>
   {{ end }}
 {{ end }}

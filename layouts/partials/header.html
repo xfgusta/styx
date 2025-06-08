@@ -1,18 +1,49 @@
-{{ with or .Site.Params.siteTitle site.Title }}
-  <h1 class="site-title">
-    <a href="{{ relURL "" }}">{{ . }}</a>
-  </h1>
-{{ end }}
-<nav>
-  {{ with .Site.Menus.main }}
-    <ul class="menu-list">
-      {{ range . }}
-        {{ if .Page }}
-          <li>
-            <a href="{{ .URL }}">{{ .Name }}</a>
-          </li>
+<div class="site-header">
+  {{ with or .Site.Params.siteTitle site.Title }}
+    <h1 class="site-title">
+      <a href="{{ relURL "" }}">{{ . }}</a>
+    </h1>
+  {{ end }}
+  <div class="site-header-tools">
+    {{ if hugo.IsMultilingual }}
+      {{ $currentLang := .Site.Language.Lang }}
+      {{ $otherLang := "" }}
+      {{ range .Site.Languages }}
+        {{ if ne .Lang $currentLang }}
+          {{ $otherLang = .Lang }}
         {{ end }}
       {{ end }}
-    </ul>
-  {{ end }}
-</nav>
+      {{ $translation := index (where $.Translations "Lang" $otherLang) 0 }}
+      <a class="lang-switch-btn" href="{{ if $translation }}{{ $translation.RelPermalink }}{{ else }}{{ $otherLang | absLangURL }}{{ end }}" aria-label="{{ T "switchLanguage" }}">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><g><path d="M20 18h-1.44a.6.6 0 0 1-.4-.12.8.8 0 0 1-.23-.31L17 15h-5l-1 2.54a.8.8 0 0 1-.22.3.6.6 0 0 1-.4.14H9l4.55-11.47h1.89zm-3.53-4.31L14.89 9.5a12 12 0 0 1-.39-1.24q-.09.37-.19.69l-.19.56-1.58 4.19zm-6.3-1.58a13.4 13.4 0 0 1-2.91-1.41 11.46 11.46 0 0 0 2.81-5.37H12V4H7.31a4 4 0 0 0-.2-.56C6.87 2.79 6.6 2 6.6 2l-1.47.5s.4.89.6 1.5H0v1.33h2.15A11.23 11.23 0 0 0 5 10.7a17.2 17.2 0 0 1-5 2.1q.56.82.87 1.38a23.3 23.3 0 0 0 5.22-2.51 15.6 15.6 0 0 0 3.56 1.77zM3.63 5.33h4.91a8.1 8.1 0 0 1-2.45 4.45 9.1 9.1 0 0 1-2.46-4.45"/></g></svg>
+        <span>
+          {{ range .Site.Languages }}
+            {{ if ne .Lang $currentLang }}
+              {{ .LanguageName }}
+            {{ end }}
+          {{ end }}
+        </span>
+      </a>
+    {{ end }}
+    <button id="theme-toggle" aria-label="{{ T "switchTheme" }}" class="theme-toggle-btn">
+    <svg height="16px" viewBox="0 0 16 16" width="16px" xmlns="http://www.w3.org/2000/svg">
+        <path d="m 7.941406 0 c -4.40625 0 -7.9999998 3.59375 -7.9999998 8 s 3.5937498 8 7.9999998 8 s 8 -3.59375 8 -8 s -3.59375 -8 -8 -8 z m 0 1.941406 c 3.359375 0 6.058594 2.699219 6.058594 6.058594 s -2.699219 6.058594 -6.058594 6.058594 z m 0 0"/>
+    </svg>
+    </button>
+  </div>
+</div>
+{{ if not .Site.Params.hideMenu }}
+  <nav>
+    {{ with .Site.Menus.main }}
+      <ul class="menu-list">
+        {{ range . }}
+          {{ if .Page }}
+            <li>
+              <a href="{{ relLangURL .URL }}">{{ or (T .Identifier) .Name }}</a>
+            </li>
+          {{ end }}
+        {{ end }}
+      </ul>
+    {{ end }}
+  </nav>
+{{ end }}

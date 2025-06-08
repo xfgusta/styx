@@ -1,7 +1,89 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+/* Fonts */
+
+@font-face {
+  font-family: 'Noto Sans Mono';
+  src: url('/fonts/NotoSansMono-VariableFont_wdth,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/fonts/OpenSans-VariableFont_wdth,wght.ttf') format('truetype');
+  font-weight: 300 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/fonts/OpenSans-Italic-VariableFont_wdth,wght.ttf') format('truetype');
+  font-weight: 300 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  --color-bg: #fff;
+  --color-text: #161616;
+  --color-heading: #2a2a2a;
+  --color-link: #0044cc;
+  --color-link-hover: #002a80;
+  --color-border: #d1d9e0;
+  --color-selection: #4d89e64d;
+  --color-muted: #505050;
+
+  --color-link-list-text: #0044cc;
+  --color-link-list-bg: #ddf4ff;
+  --color-link-list-hover-bg: #0969da;
+  --color-link-list-hover-text: #fff;
+  --color-tag-bg: #ddf4ff;
+  --color-tag-hover-bg: #0969da;
+  --color-tag-hover-text: #fff;
+  --color-lang-btn-bg: transparent;
+  --color-lang-btn-hover-bg: #ddf4ff;
+  --color-lang-btn: #505050;
+  --color-lang-btn-hover: #0044cc;
+  --color-hr: #d1d9e0;
+  --color-blockquote: #505050;
+  --color-blockquote-border: #d1d9e0;
+  --color-code-bg: #f6f7f6;
+  --color-table-border: #d1d9e0;
+  --color-table-row-alt: #fcfcfc;
+}
+
+[data-theme="dark"] {
+  --color-bg: #121212;
+  --color-text: #e0e0e0;
+  --color-heading: #e0e0e0;
+  --color-link: #bb86fc;
+  --color-link-hover: #d0b3ff;
+  --color-border: #444;
+  --color-selection: #bb86fc44;
+  --color-muted: #a6a6bb;
+
+  --color-link-list-text: #e0e0e0;
+  --color-link-list-bg: #1f1f1f;
+  --color-link-list-hover-bg: #bb86fc;
+  --color-link-list-hover-text: #1f1f1f;
+  --color-tag-bg: #1f1f1f;
+  --color-tag-hover-bg: #bb86fc;
+  --color-tag-hover-text: #1f1f1f;
+  --color-lang-btn-bg: transparent;
+  --color-lang-btn-hover-bg: #282848;
+  --color-lang-btn: #a6a6bb;
+  --color-lang-btn-hover: #bb86fc;
+  --color-hr: #444;
+  --color-blockquote: #a6a6bb;
+  --color-blockquote-border: #444;
+  --color-code-bg: #23232b;
+  --color-table-border: #444;
+  --color-table-row-alt: #23232b;
+}
 
 ::selection {
-  background: #4d89e64d;
+  background: var(--color-selection);
   text-shadow: none;
 }
 
@@ -15,26 +97,15 @@ body {
   max-width: 720px;
   font-family: 'Open Sans', sans-serif;
   font-size: 1rem;
-  color: #161616;
+  color: var(--color-text);
+  background-color: var(--color-bg);
 }
 
 header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  column-gap: 1rem;
-  margin: 1rem 0;
-}
-
-/* Responsive header: hide site-title and stack nav on mobile */
-
-@media (max-width: 600px) {
-  .site-title {
-    display: none;
-  }
-  header {
-    flex-direction: column;
-  }
+  flex-direction: column;
+  row-gap: .5rem;
+  margin: .5rem 0;
 }
 
 footer {
@@ -45,7 +116,7 @@ footer {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
-  color: #2a2a2a;
+  color: var(--color-heading);
 }
 
 h1 {
@@ -73,18 +144,29 @@ p {
 }
 
 a {
-  color: #0044cc;
+  color: var(--color-link);
   text-decoration: none;
 }
 
 a:hover {
-  color: #002a80;
+  color: var(--color-link-hover);
   text-decoration: underline;
 }
 
 hr {
   border: none;
-  border-top: 1px solid #d1d9e0;
+  border-top: 1px solid var(--color-border);
+}
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-header-tools {
+  display: inline-flex;
+  gap: .5rem;
 }
 
 .site-title {
@@ -94,7 +176,7 @@ hr {
 }
 
 .site-title a {
-  color: #505050;
+  color: var(--color-muted);
 }
 
 .view-all-posts {
@@ -106,7 +188,7 @@ hr {
 }
 
 .footer-attribution, .footer-attribution a {
-  color: #505050;
+  color: var(--color-muted);
 }
 
 /* about me */
@@ -143,23 +225,77 @@ hr {
 
 .about-me-author-nickname-pronouns {
   font-size: 1.125rem;
-  color: #505050;
+  color: var(--color-muted);
 }
 
+/* language switcher */
+
+.lang-switch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-lang-btn-bg);
+  color: var(--color-lang-btn);
+  font-weight: 400;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 2px 8px;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+
+.lang-switch-btn:hover {
+  background: var(--color-lang-btn-hover-bg);
+  color: var(--color-lang-btn-hover);
+  text-decoration: none;
+}
+
+.lang-switch-btn svg {
+  width: 1.1em;
+  height: 1.1em;
+  vertical-align: middle;
+  color: inherit;
+  fill: currentColor;
+}
+
+/* theme switcher */
+
+.theme-toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-lang-btn);
+  transition: background 0.2s, color 0.2s;
+}
+
+.theme-toggle-btn:hover {
+  background: var(--color-lang-btn-hover-bg);
+  color: var(--color-lang-btn-hover);
+}
+
+.theme-toggle-btn svg {
+  width: 1.1em;
+  height: 1.1em;
+  color: inherit;
+  fill: currentColor;
+}
 
 /* item lists */
 
 .menu-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  column-gap: 1rem;
+  gap: 1rem;
   padding: 0;
   margin: 0;
   list-style-type: none;
 }
 
-.social-list {
+.link-list {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
@@ -182,9 +318,9 @@ hr {
   list-style-type: none;
 }
 
-/* social item */
+/* link item */
 
-.social-list li a {
+.link-list li a {
   display: inline-block;
   padding: 2px 8px;
   border-radius: 4px;
@@ -194,14 +330,14 @@ hr {
   min-height: 24px;
   box-sizing: border-box;
   text-align: center;
-  background-color: #ddf4ff;
-  color: #0044cc;
+  background-color: var(--color-link-list-bg);
+  color: var(--color-link-list-text);
   transition: background 0.2s, color 0.2s;
 }
 
-.social-list li a:hover {
-  background-color: #0969da;
-  color: #ffffff;
+.link-list li a:hover {
+  background-color: var(--color-link-list-hover-bg);
+  color: var(--color-link-list-hover-text);
   text-decoration: none;
 }
 
@@ -215,7 +351,7 @@ hr {
 
 .post-item-title {
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 500;
   margin: 0;
 }
 
@@ -225,7 +361,7 @@ hr {
 
 .post-item-date {
   flex-shrink: 0;
-  color: #505050;
+  color: var(--color-muted);
 }
 
 /* tag item */
@@ -239,13 +375,13 @@ hr {
   font-weight: 500;
   padding: 2px 8px;
   border-radius: 2em;
-  background-color: #ddf4ff;
+  background-color: var(--color-tag-bg);
   transition: background 0.2s, color 0.2s;
 }
 
 .tag-list li a:hover {
-  color: #ffffff;
-  background-color: #0969da;
+  color: var(--color-tag-hover-text);
+  background-color: var(--color-tag-hover-bg);
   text-decoration: none;
 }
 
@@ -256,7 +392,7 @@ hr {
 }
 
 .post-title {
-  margin-bottom: .5rem;
+  margin: .5rem 0;
 }
 
 .post-description {
@@ -266,83 +402,6 @@ hr {
 .post-meta {
   display: flex;
   gap: .5rem;
-  color: #505050;
+  color: var(--color-muted);
   margin: .5rem 0;
-}
-
-/* 404 page */
-
-.page-not-found {
-  text-align: center;
-}
-
-/* Dark mode styles */
-
-@media (prefers-color-scheme: dark) {
-  ::selection {
-    background: #bb86fc44;
-    text-shadow: none;
-  }
-
-  body {
-    background-color: #121212;
-    color: #e0e0e0;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    color: #e0e0e0;
-  }
-
-  a {
-    color: #bb86fc;
-  }
-
-  a:hover {
-    color: #d0b3ff;
-  }
-
-  hr {
-    border-top: 1px solid #444;
-  }
-
-  .site-title a {
-    color: #a6a6bb;
-  }
-
-  .footer-attribution, .footer-attribution a {
-    color: #a6a6bb;
-  }
-
-  .about-me-author-nickname-pronouns {
-    color: #a6a6bb;
-  }
-
-  .social-list li a {
-    background-color: #1f1f1f;
-    color: #e0e0e0;
-    transition: background 0.2s, color 0.2s;
-  }
-
-  .social-list li a:hover {
-    background-color: #bb86fc;
-    color: #1f1f1f;
-    text-decoration: none;
-  }
-
-  .post-item-date {
-    color: #a6a6bb;
-  }
-
-  .post-meta {
-    color: #a6a6bb;
-  }
-
-  .tag-list li a {
-    background-color: #1f1f1f;
-  }
-
-  .tag-list li a:hover {
-    background-color: #bb86fc;
-    color: #1f1f1f;
-  }
 }
