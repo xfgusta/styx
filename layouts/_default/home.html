@@ -2,7 +2,7 @@
   <div class="about-me">
     <div class="about-me-header">
       {{ with .Site.Params.avatar }}
-        <img class="about-me-avatar" alt="avatar" src="{{ . | safeURL }}">
+        <img class="about-me-avatar" alt="avatar" src="{{ . | safeURL }}" width="80px" height="80px">
       {{ end }}
       <div class="about-me-author-info">
         <h1 class="about-me-author-name">{{ .Site.Params.author }}</h1>

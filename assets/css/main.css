@@ -71,7 +71,7 @@
   --color-tag-hover-bg: #bb86fc;
   --color-tag-hover-text: #1f1f1f;
   --color-lang-btn-bg: transparent;
-  --color-lang-btn-hover-bg: #282848;
+  --color-lang-btn-hover-bg: #1f1f1f;
   --color-lang-btn: #a6a6bb;
   --color-lang-btn-hover: #bb86fc;
   --color-hr: #444;
@@ -158,24 +158,19 @@ hr {
   border-top: 1px solid var(--color-border);
 }
 
-.site-header {
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.site-header-tools {
-  display: inline-flex;
-  gap: .5rem;
-}
-
-.site-title {
+.header-title {
   font-size: 1rem;
   font-weight: 500;
   margin: 0;
 }
 
-.site-title a {
+.header-title a {
   color: var(--color-muted);
 }
 
@@ -206,6 +201,7 @@ hr {
 
 .about-me-avatar {
   width: 80px;
+  height: 80px;
   border-radius: 50%;
   box-shadow: 0 0 0 1px #1f232826;
   flex-shrink: 0;
@@ -286,6 +282,15 @@ hr {
 
 /* item lists */
 
+.header-tool-list {
+  display: flex;
+  gap: .5rem;
+  padding: 0;
+  margin: 0;
+  align-items:  center;
+  list-style-type: none;
+}
+
 .menu-list {
   display: flex;
   flex-wrap: wrap;
@@ -299,7 +304,7 @@ hr {
 .link-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: .5rem;
   padding: 0;
   margin: 1rem 0;
   list-style-type: none;
@@ -317,6 +322,13 @@ hr {
 .tag-list {
   padding: 0;
   list-style-type: none;
+}
+
+/* header tool item */
+
+.header-tool-list li {
+  display: flex;
+  align-items: center;
 }
 
 /* link item */
