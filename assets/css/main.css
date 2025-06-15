@@ -368,8 +368,16 @@ hr {
   margin: 0;
 }
 
-.post-item-description :first-child, .post-item-description :last-child {
+.post-item-description {
   margin: 0;
+}
+
+.post-item-description :first-child {
+  margin-top: 0;
+}
+
+.post-item-description :last-child {
+  margin-bottom: 0;
 }
 
 .post-item-date {
