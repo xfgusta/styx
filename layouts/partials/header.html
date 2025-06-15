@@ -1,7 +1,7 @@
 <div class="header">
   {{ with or .Site.Params.siteTitle site.Title }}
     <h1 class="header-title">
-      <a href="{{ relURL "" }}">{{ . }}</a>
+      <a href="{{ $.Site.Home.Permalink }}">{{ . }}</a>
     </h1>
   {{ end }}
   <ul class="header-tool-list">
