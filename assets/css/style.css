@@ -1,3 +1,11 @@
+strong {
+  font-weight: 600;
+}
+
+ul li::marker {
+  color: var(--color-muted);
+}
+
 blockquote {
   padding-left: 1rem;
   margin-left: 0;
