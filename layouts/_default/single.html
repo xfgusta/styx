@@ -14,12 +14,14 @@
     {{ .Content }}
   </div>
   {{ with .GetTerms "tags" }}
-    <ul class="tag-list">
-      {{ range . }}
-        <li>
-          <a href="{{ .RelPermalink }}">{{ .LinkTitle | lower }}</a>
-        </li>
-      {{ end }}
-    </ul>
+    <div class="post-tags">
+      <ul class="tag-list">
+        {{ range . }}
+          <li>
+            <a href="{{ .RelPermalink }}">{{ .LinkTitle | lower }}</a>
+          </li>
+        {{ end }}
+      </ul>
+    </div>
   {{ end }}
 {{ end }}
