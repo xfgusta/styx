@@ -2,6 +2,11 @@ strong {
   font-weight: 600;
 }
 
+.post-content ul li:not(:last-child),
+.page-content ul li:not(:last-child) {
+  margin-bottom: 0.75rem;
+}
+
 ul li::marker {
   color: var(--color-muted);
 }
@@ -45,7 +50,8 @@ table {
   color: var(--color-text);
 }
 
-table thead th, table tbody td {
+table thead th,
+table tbody td {
   border: 1px solid var(--color-table-border);
   padding: .5rem;
   text-align: left;
