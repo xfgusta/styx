@@ -320,6 +320,8 @@ hr {
 }
 
 .tag-list {
+  display: flex;
+  gap: .5rem;
   padding: 0;
   list-style-type: none;
 }
